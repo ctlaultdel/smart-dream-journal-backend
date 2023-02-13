@@ -4,7 +4,7 @@ from flask_migrate import Migrate
 from dotenv import load_dotenv
 import os
 
-# db set up
+# db initialization
 db = SQLAlchemy()
 migrate = Migrate(compare_type=True)
 load_dotenv()
@@ -21,9 +21,21 @@ def create_app(test_config=None):
         app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("SQLALCHEMY_DATABASE_URI")
 
     # TO DO ~~~ import models
+
+    # setup db
     db.init_app(app)
     migrate.init_app(app, db)
 
-    # TO DO ~~~ register blueprints
+    # register blueprints
+    from app.routes.login_routes import login_bp
+    from app.routes.entries import entries_bp
+    from app.routes.dreams101 import dreams101_bp
+    from app.routes.calendar import calendar_bp
+    from app.routes.analyses import analyses_bp
+    app.register_blueprint(login_bp)
+    app.register_blueprint(entries_bp)
+    app.register_blueprint(dreams101_bp)
+    app.register_blueprint(calendar_bp)
+    app.register_blueprint(analyses_bp)
     
     return app
