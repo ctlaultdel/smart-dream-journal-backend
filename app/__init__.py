@@ -20,7 +20,8 @@ def create_app(test_config=None):
     else:
         app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("SQLALCHEMY_DATABASE_URI")
 
-    # TO DO ~~~ import models
+    # import models
+    from app.models.Entry import Entry
 
     # setup db
     db.init_app(app)
