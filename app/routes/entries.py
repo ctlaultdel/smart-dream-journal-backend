@@ -1,5 +1,6 @@
-from flask import Blueprint, jsonify, request, make_response
+from flask import Blueprint, jsonify, request, make_response, abort
 from app import db
+from app.models.User import User
 from app.models.Entry import Entry
 from app.models.validation_checkers import validate_model
 
@@ -23,9 +24,16 @@ def display_one_entry(entry_id):
 
 # post new entry route
 @entries_bp.route("", methods=["POST"])
-def create_new_entry():
+def create_entry():
     request_body = request.get_json()
-    new_entry = Entry.from_dict(request_body)
+    attr_reqs = ["title", "keywords", "description", "mood", "user_id"]
+    for req in attr_reqs:
+        if req not in request_body:
+            abort(make_response({
+                "message": f"Failed to create a user because {req} missing"
+            }, 400))
+    user = validate_model(User, request_body["user_id"])
+    new_entry = Entry.from_dict(request_body, user)
     db.session.add(new_entry)
     db.session.commit()
     return make_response({
