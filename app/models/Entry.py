@@ -3,11 +3,11 @@ from datetime import date
 
 class Entry(db.Model):
     __tablename__ = "entries"
-    id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     date = db.Column(db.Date, default=date.today())
-    title = db.Column(db.String)
+    title = db.Column(db.String, nullable=False)
     keywords = db.Column(db.String, nullable=False)
-    description = db.Column(db.Text)
+    description = db.Column(db.Text, nullable=False)
     mood = db.Column(db.String, nullable=False)
     user = db.relationship("User", back_populates="entries")
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
@@ -27,10 +27,12 @@ class Entry(db.Model):
         }
 
     @classmethod
-    def from_dict(cls, dict):
+    def from_dict(cls, dict, user):
         return Entry(
             title=dict["title"],
             keywords=dict["keywords"],
             description=dict["description"],
             mood=dict["mood"],
-        )
+            user=user,
+            user_id=user.id,
+            )
