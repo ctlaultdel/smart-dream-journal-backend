@@ -1,7 +1,6 @@
 from app import db
 from datetime import date
 
-
 class Entry(db.Model):
     __tablename__ = "entries"
     id = db.Column(db.Integer, primary_key=True)
@@ -10,6 +9,8 @@ class Entry(db.Model):
     keywords = db.Column(db.String, nullable=False)
     description = db.Column(db.Text)
     mood = db.Column(db.String, nullable=False)
+    user = db.relationship("User", back_populates="entries")
+    user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
 
     def to_dict(self):
         """
