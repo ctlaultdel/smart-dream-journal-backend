@@ -1,11 +1,12 @@
 from flask import Blueprint, jsonify, request, make_response
 from app import db
 from app.models.Entry import Entry
+from app.models.validation_checkers import validate_model
 
 # initialize entries blueprint
-entries_bp = Blueprint("entries", __name__, url_prefix="/entries")
+entries_bp = Blueprint("journal", __name__, url_prefix="/journal")
 
-# entries route
+# all entries route
 @entries_bp.route("", methods=["GET"])
 def display_entries():
     entries = Entry.query.all()
@@ -14,6 +15,13 @@ def display_entries():
         response.append(entry.to_dict())
     return jsonify(response)
 
+# single entry route
+@entries_bp.route("/<entry_id>", methods=["GET"])
+def display_one_entry(entry_id):
+    entry = validate_model(Entry, entry_id)
+    return entry.to_dict()
+
+# post new entry route
 @entries_bp.route("", methods=["POST"])
 def create_new_entry():
     request_body = request.get_json()
