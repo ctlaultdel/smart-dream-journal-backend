@@ -32,11 +32,13 @@ def create_app(test_config=None):
 
     # register blueprints
     from app.routes.login_routes import main_bp, login_bp, register_bp
+    from app.routes.users_routes import users_bp
     from app.routes.entries import entries_bp
     from app.routes.dreams101 import dreams101_bp
     from app.routes.calendar import calendar_bp
     from app.routes.analyses import analyses_bp
     app.register_blueprint(main_bp)
+    app.register_blueprint(users_bp)
     app.register_blueprint(register_bp)
     app.register_blueprint(login_bp)
     app.register_blueprint(entries_bp)
