@@ -13,14 +13,14 @@ login_bp = Blueprint("login", __name__, url_prefix="/login")
 @login_bp.route("", methods=["GET", "POST"])
 def display_login():
     form = LoginForm()
-    return "Login Here"
+    return form
 
 # register route
 register_bp = Blueprint("register", __name__, url_prefix="/register")
 @register_bp.route("", methods=["GET", "POST"])
 def register_user():
     form = RegisterForm()
-
+    return form
 # callback route
 
 # logout route
