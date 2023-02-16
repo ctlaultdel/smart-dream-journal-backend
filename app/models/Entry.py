@@ -22,7 +22,8 @@ class Entry(db.Model):
             "title": self.title,
             "keywords": self.keywords,
             "description": self.description,
-            "mood": self.mood
+            "mood": self.mood,
+            "user_id": self.user_id
         }
 
     @classmethod
