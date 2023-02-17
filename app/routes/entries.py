@@ -5,7 +5,7 @@ from app.models.Entry import Entry
 from app.models.validation_checkers import validate_model
 
 # initialize entries blueprint
-entries_bp = Blueprint("journal", __name__, url_prefix="/journal")
+entries_bp = Blueprint("journal", __name__, url_prefix="/profile/journal")
 
 # all entries route
 @entries_bp.route("", methods=["GET"])
