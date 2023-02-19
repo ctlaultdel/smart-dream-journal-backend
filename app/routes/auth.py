@@ -5,7 +5,7 @@ from flask_jwt_extended import create_access_token
 
 
 auth = Blueprint("auth", __name__, url_prefix="/")
-profile = Blueprint("profile", __name__, url_prefix="/profile")
+
 
 
 # auth route to return JWT access tokens
