@@ -13,9 +13,8 @@ migrate = Migrate(compare_type=True)
 def create_app(test_config=None):
     app = Flask(__name__)
     app.config.from_object(ApplicationConfig)
-    jwt = JWTManager(app)
-    
     CORS(app)
+    jwt = JWTManager(app)
 
     # select development or testing db
     if test_config:

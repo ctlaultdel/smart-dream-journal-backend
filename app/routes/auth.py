@@ -8,8 +8,8 @@ auth = Blueprint("auth", __name__, url_prefix="/")
 profile = Blueprint("profile", __name__, url_prefix="/profile")
 
 
-# main route to authenticate user and return JWT
-@auth.route("", methods=["POST"])
+# auth route to return JWT access tokens
+@auth.route("/token", methods=["POST"])
 def login():
     username = request.json.get("username", None)
     password = request.json.get("password", None)
