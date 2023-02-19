@@ -32,7 +32,8 @@ def create_app(test_config=None):
     migrate.init_app(app, db)
 
     # register blueprints
-    from app.routes.auth import auth, profile
+    from app.routes.auth import auth
+    from app.routes.profile import profile
     from app.routes.entries import entries_bp
     app.register_blueprint(auth)
     app.register_blueprint(profile)
