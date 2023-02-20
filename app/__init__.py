@@ -2,18 +2,19 @@ from flask import Flask
 from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
-from dotenv import load_dotenv
+from config import ApplicationConfig
+from flask_jwt_extended import JWTManager
 import os
 
 # db initialization
 db = SQLAlchemy()
 migrate = Migrate(compare_type=True)
-load_dotenv()
 
 def create_app(test_config=None):
     app = Flask(__name__)
+    app.config.from_object(ApplicationConfig)
     CORS(app)
-    app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+    jwt = JWTManager(app)
 
     # select development or testing db
     if test_config:
@@ -22,7 +23,7 @@ def create_app(test_config=None):
     else:
         app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("SQLALCHEMY_DATABASE_URI")
 
-    # import models
+    # import models for Alembic setup
     from app.models.Entry import Entry
     from app.models.User import User
 
@@ -31,19 +32,9 @@ def create_app(test_config=None):
     migrate.init_app(app, db)
 
     # register blueprints
-    from app.routes.auth import auth
-    # from app.routes.users_routes import users_bp
-    from app.routes.entries import entries_bp
-    # from app.routes.dreams101 import dreams101_bp
-    # from app.routes.calendar import calendar_bp
-    # from app.routes.analyses import analyses_bp
-    app.register_blueprint(auth)
-    # app.register_blueprint(users_bp)
-    # app.register_blueprint(register_bp)
-    # app.register_blueprint(login_bp)
-    app.register_blueprint(entries_bp)
-    # app.register_blueprint(dreams101_bp)
-    # app.register_blueprint(calendar_bp)
-    # app.register_blueprint(analyses_bp)
-    
+    from app.routes.auth import auth_bp
+    from app.routes.profile import profile_bp
+    app.register_blueprint(auth_bp)
+    app.register_blueprint(profile_bp)
+
     return app

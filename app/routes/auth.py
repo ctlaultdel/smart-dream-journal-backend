@@ -1,64 +1,41 @@
-import uuid
 from app import db
 from app.models.User import User
-from flask import Blueprint, jsonify, abort, make_response, request
-from app.models.validation_checkers import validate_model
+from flask import Blueprint, jsonify, request, abort, make_response
+from flask_jwt_extended import create_access_token
 
-auth = Blueprint("auth", __name__, url_prefix="/")
+# Authorization blueprint ~ public routes
+auth_bp = Blueprint("auth", __name__, url_prefix="/")
 
-# authentification routes
-@auth.route("", methods=["POST"])
+
+# route to request JWT access token
+@auth_bp.route("/token", methods=["POST"])
 def login():
     request_body = request.get_json()
-    user = User.query.filter_by(username=request_body["username"])[0]
-    if user and request_body["password"]==user.password:
-        token = uuid.uuid4()
-        return {"token": token}
-    else:
-        abort(make_response({
-            "message": "username or password incorrect"
-        }, 404))
+    username = request.json.get("username", None)
+    email = request.json.get("email", None)
+    password = request.json.get("password", None)
+    # check for username/email with password
+    if not (username and password) and not (email & password):
+        abort(make_response({"message": "username or email required for login"}, 400))
+    # fetch user matching username/email and password
+    user = User.query.filter_by(**request_body).first()
+    # handle incorrect credentials
+    if not user:
+        abort(make_response({"message": "Credentials are incorrect"}, 401))
+    # create access token for user
+    access_token = create_access_token(identity=user.id)
+    return jsonify(access_token=access_token)
 
-@auth.route("/signup")
-def signup():
-    return "Signup"
-
-@auth.route("/logout")
-def logout():
-    return "Logout"
-
-
-
-
-# @main_bp.route("", methods=["GET"])
-# def display_homepage():
-#     return "Main page"
-
-
-# profile_bp = Blueprint("profile", __name__, url_prefix="/profile")
-
-# @profile_bp.route("")
-# def my_profile():
-#     response_body = {
-#         "username": "Lollapalarza",
-#         "about": "My profile"
-#     }
-#     return response_body
-
-
-# # login route
-# login_bp = Blueprint("login", __name__, url_prefix="/login")
-# @login_bp.route("", methods=["GET", "POST"])
-# def display_login():
-#     form = LoginForm()
-#     return form
-
-# # register route
-# register_bp = Blueprint("register", __name__, url_prefix="/register")
-# @register_bp.route("", methods=["GET", "POST"])
-# def register_user():
-#     form = RegisterForm()
-#     return form
-# callback route
-
-# logout route
+# route to register new account
+@auth_bp.route("/register", methods=["POST"])
+def register():
+    request_body = request.get_json()
+    try:
+        username = request_body["username"]
+        email = request_body["email"]
+        password = request_body["password"]
+    except KeyError as e:
+        abort(make_response({"message": f"Request body must include {e}"}, 400))
+    new_user = User(username=username, email=email, password=password)
+    new_user.save()
+    return make_response({"message": f"{username} successfully created"}, 201)
