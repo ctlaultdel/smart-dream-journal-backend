@@ -23,7 +23,7 @@ def display_user_entries():
     response = []
     for entry in user.entries:
         response.append(entry.to_dict())
-    return make_response(response, 200)
+    return jsonify(response)
 
 # user new entry route
 @profile_bp.route("/journal", methods=["POST"])
