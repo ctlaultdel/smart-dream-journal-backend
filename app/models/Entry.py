@@ -17,13 +17,11 @@ class Entry(db.Model):
         Returns dictionary of entry data
         """
         return {
-            "id": self.id,
             "date": self.date,
             "title": self.title,
             "keywords": self.keywords,
             "description": self.description,
             "mood": self.mood,
-            "user_id": self.user_id
         }
 
     @classmethod
@@ -36,3 +34,11 @@ class Entry(db.Model):
             user=user,
             user_id=user.id,
             )
+    
+    def save(self):
+        db.session.add(self)
+        db.session.commit()
+
+    def delete(self):
+        db.session.delete(self)
+        db.session.commit()

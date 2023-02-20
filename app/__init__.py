@@ -32,11 +32,9 @@ def create_app(test_config=None):
     migrate.init_app(app, db)
 
     # register blueprints
-    from app.routes.auth import auth
-    from app.routes.profile import profile
-    from app.routes.entries import entries_bp
-    app.register_blueprint(auth)
-    app.register_blueprint(profile)
-    app.register_blueprint(entries_bp)
+    from app.routes.auth import auth_bp
+    from app.routes.profile import profile_bp
+    app.register_blueprint(auth_bp)
+    app.register_blueprint(profile_bp)
 
     return app
