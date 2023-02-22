@@ -6,3 +6,4 @@ load_dotenv
 class ApplicationConfig:
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     SQLACHEMY_ECHO = True
+    JWT_SECRET_KEY = os.environ.get("JWT_SECRET_KEY")
