@@ -17,6 +17,7 @@ class Entry(db.Model):
         Returns dictionary of entry data
         """
         return {
+            "id": self.id,
             "date": self.date,
             "title": self.title,
             "keywords": self.keywords,
