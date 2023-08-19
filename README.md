@@ -21,12 +21,8 @@ Web Application
 - React: web platform
 - Flask: Backend
 - PostgreSQL: Database
-- OAuth: Google, login, twitter, instagram, facebook
-- Jest/Selenium: Front-end and Back-end testing suite packages
 - Heroku: Deployment
-- Kotlin: mobile development
-- Pandas: Data wrangling python package for data wrangling
-- Seaborn/Bokeh: Graphs & visualizations
+- [Flask-jwt-extended](https://flask-jwt-extended.readthedocs.io/en/stable/): Package for JSON web token generation and protection of API endpoints
 
 ## MVP Feature Set
 
