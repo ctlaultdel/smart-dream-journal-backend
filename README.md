@@ -21,7 +21,7 @@ Web Application
 - [React](https://legacy.reactjs.org/docs/getting-started.html): web platform
 - [Flask](https://flask.palletsprojects.com/en/2.3.x/): Backend
 - [PostgreSQL](https://www.postgresql.org/docs/): Database
-- [Heroku](https://devcenter.heroku.com/categories/reference): Deployment
+- [Heroku](https://devcenter.heroku.com/categories/reference/): Deployment
 - [Flask-jwt-extended](https://flask-jwt-extended.readthedocs.io/en/stable/): Package for JSON web token generation and protection of API endpoints
 - [AuthContext](https://legacy.reactjs.org/docs/context.html#gatsby-focus-wrapper): React library used for sharing authentification status across react components
 
