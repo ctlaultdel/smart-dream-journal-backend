@@ -41,7 +41,10 @@ Web Application
     - _Feelings Wheel_ depicting dream moods frequency (better for handling wider array of dream mood emojis)
     - _Word Cloud_ depicting dream entry keywords by frequency with links to dream entries containing those keyword tags
     - Interactive graphs would be nice where they can click on a point and see some stats about the dream ([bokeh](https://docs.bokeh.org/en/latest/))
-2. Dreams 101
+2. Calendar
+   - Calendar page with marks on dates with existing dream journal entries
+4. Dreams 101
     - articles/resources for users that want to read the science or learn more about dreams and effects on health, etc.
-3. Mobile App Platform
-    - mobile app in addition to web browser app
+    - dream dictionary where you can click on a dream keyword and see the meaning in a dream dictionary
+5. Mobile App Platform
+    - mobile app in addition to web browser app [kotlin](https://kotlinlang.org/docs/home.html)
