@@ -1,12 +1,5 @@
-# dream-journal
+# dream-journal 😴
 Ada AC2 Capstone Project
-
-## Learning Goals
-- Full stack design and development of a multi-user web application
-- Solidify skills in curriculum-based tech stack (react, flask, postgreSQL, Heroku)
-- Individually learn new skills in OAuth, Kotlin, and bokeh graphics tech stack
-- Demonstrate skills in UX design, anticipating needs of multiple users, efficient backend construction
-- Build high coverage full stack testing suite
 
 ## Project Description 🚀
 
