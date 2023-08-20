@@ -27,27 +27,27 @@ Web Application
 
 ## MVP Feature Set
 
-### Core Requirements
 1.  Home Dashboard
-    - Provides navigation to calendar, journal entry, dream analyses
+    - Provides navigation to home profile page, journal entries, dream analyses
 2. Profile Registration/Login
     - Allows users to create an account, login, and logout
-4. Journal Entries
+3. Journal Entries
     - Page where users can log a dream journal entry
     - Title
     - Description (text description in paragraph form, visible while writing for long/short entries)
     - Date (allow user to click on calendar date if time permits, otherwise enter date)
     - Keywords (allow users to input their own keywords for things that stood out to them - limit to 1 word in keyword)
     - Mood selector (provide choices for user to select - e.g. scary, weird, adventurous, sad - use of fun emojis)
-    - Time to Bed & Time Awake (allow users to input time estimates for when they went to bed vs. fell asleep)
+4. Dream Analyses
+   - Bar plot showing the frequency of dreams by mood
+   - users can visualize entries logged by emojis depicting a "dream mood" e.g. 🦀 🧗 🐛 ⛰️
 
-### Optional Enhancements
+### Future Enhancements
 
-1. Figures
-    - Graph of ratio of dreams by mood (user can visualize entries logged by happy, adventurous, weird, scary, sad)
-    - Graph of frequency of dreams logged
-    - Graph of relationship between dream mood and time to bed and time awake
-    - Interactive graphs would be nice where they can click on a point and see some stats about the dream (bokeh)
+1. Analyses Figures
+    - _Feelings Wheel_ depicting dream moods frequency (better for handling wider array of dream mood emojis)
+    - _Word Cloud_ depicting dream entry keywords by frequency with links to dream entries containing those keyword tags
+    - Interactive graphs would be nice where they can click on a point and see some stats about the dream ([bokeh](https://docs.bokeh.org/en/latest/))
 2. Dreams 101
     - articles/resources for users that want to read the science or learn more about dreams and effects on health, etc.
 3. Mobile App Platform
