@@ -17,6 +17,7 @@ Web Application
 - [Heroku](https://devcenter.heroku.com/categories/reference/): Deployment
 - [Flask-jwt-extended](https://flask-jwt-extended.readthedocs.io/en/stable/): Package for JSON web token generation and protection of API endpoints
 - [AuthContext](https://legacy.reactjs.org/docs/context.html#gatsby-focus-wrapper): React library used for sharing authentification status across react components
+- [Recharts](https://recharts.org/): Library built on React components for displaying charts and graphs
 
 ## MVP Feature Set 🏁
 
