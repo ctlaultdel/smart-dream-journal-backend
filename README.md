@@ -18,21 +18,21 @@ Web Application
 
 ## Tech Stack
 
-- React: web platform
-- Flask: Backend
-- PostgreSQL: Database
-- Heroku: Deployment
+- [React](https://legacy.reactjs.org/docs/getting-started.html): web platform
+- [Flask](https://flask.palletsprojects.com/en/2.3.x/): Backend
+- [PostgreSQL](https://www.postgresql.org/docs/): Database
+- [Heroku](https://devcenter.heroku.com/categories/reference): Deployment
 - [Flask-jwt-extended](https://flask-jwt-extended.readthedocs.io/en/stable/): Package for JSON web token generation and protection of API endpoints
+- [AuthContext](https://legacy.reactjs.org/docs/context.html#gatsby-focus-wrapper): React library used for sharing authentification status across react components
 
 ## MVP Feature Set
 
 ### Core Requirements
 1.  Home Dashboard
     - Provides navigation to calendar, journal entry, dream analyses
-2.  Calendar
-    - Calendar that users can scroll through that clearly points out entry dates
-    - User can use this feature to identify what dates they have logged an entry
-3. Journal Entry
+2. Profile Registration/Login
+    - Allows users to create an account, login, and logout
+4. Journal Entries
     - Page where users can log a dream journal entry
     - Title
     - Description (text description in paragraph form, visible while writing for long/short entries)
