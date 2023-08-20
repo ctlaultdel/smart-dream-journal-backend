@@ -8,15 +8,15 @@ Ada AC2 Capstone Project
 - Demonstrate skills in UX design, anticipating needs of multiple users, efficient backend construction
 - Build high coverage full stack testing suite
 
-## Project Description
+## Project Description 🚀
 
 The problem I want to address with my capstone project is providing an easy, efficient tool that allows people to learn about their health by understanding their dream patterns. Hormonal changes can affect when you dream, what you dream about, and sometimes dreaming can even negatively impact your quality of life. For example, night terrors, sleep paralysis, nightmares. For others, dreams can provide inspiration for new ideas and motivation to achieve certain goals in life. I want to create a platform that is convenient for both types of users and will do all the work in identifying patterns, extracting and presenting useful information, and creating a good experience through an asthetically-pleasing interface that makes tracking dreams fun.
 
-## Project Type
+## Project Type 👾
 
 Web Application
 
-## Tech Stack
+## Tech Stack 👩‍💻
 
 - [React](https://legacy.reactjs.org/docs/getting-started.html): web platform
 - [Flask](https://flask.palletsprojects.com/en/2.3.x/): Backend
@@ -25,7 +25,7 @@ Web Application
 - [Flask-jwt-extended](https://flask-jwt-extended.readthedocs.io/en/stable/): Package for JSON web token generation and protection of API endpoints
 - [AuthContext](https://legacy.reactjs.org/docs/context.html#gatsby-focus-wrapper): React library used for sharing authentification status across react components
 
-## MVP Feature Set
+## MVP Feature Set 🏁
 
 1.  Home Dashboard
     - Provides navigation to home profile page, journal entries, dream analyses
@@ -42,7 +42,7 @@ Web Application
    - Bar plot showing the frequency of dreams by mood
    - users can visualize entries logged by emojis depicting a "dream mood" e.g. 🦀 🧗 🐛 ⛰️
 
-### Future Enhancements
+### Future Enhancements 🔥
 
 1. Analyses Figures
     - _Feelings Wheel_ depicting dream moods frequency (better for handling wider array of dream mood emojis)
