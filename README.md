@@ -1,4 +1,4 @@
-# dream-journal 😴
+# Smart Dream Journal 😴
 Ada AC2 Capstone Project
 
 ## Project Description 🚀
