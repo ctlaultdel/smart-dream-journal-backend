@@ -16,7 +16,6 @@ def create_app(test_config=None):
     
     CORS(app)
     jwt = JWTManager(app)
-    app.config['CORS_HEADERS'] = 'Content-Type'
 
     # select development or testing db
     if test_config:
