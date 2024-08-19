@@ -1,5 +1,10 @@
 # Smart Dream Journal 😴
 Ada AC2 Capstone Project
+https://smart-dream-journal-frontend-ba3951debbfd.herokuapp.com/login
+
+_Test Account Credentials_
+username: alpinista24
+password: alpinista24
 
 ## Project Description 🚀
 
@@ -7,7 +12,7 @@ The problem I want to address with my capstone project is providing an easy, eff
 
 ## Project Type 👾
 
-Web Application https://smart-dream-journal-frontend-ba3951debbfd.herokuapp.com/login
+Web Application
 
 ## Tech Stack 👩‍💻
 
