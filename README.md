@@ -7,7 +7,7 @@ The problem I want to address with my capstone project is providing an easy, eff
 
 ## Project Type 👾
 
-Web Application
+Web Application https://smart-dream-journal-frontend-ba3951debbfd.herokuapp.com/login
 
 ## Tech Stack 👩‍💻
 
