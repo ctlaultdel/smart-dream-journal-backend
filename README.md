@@ -1,5 +1,12 @@
 # Smart Dream Journal 😴
 Ada AC2 Capstone Project
+https://smart-dream-journal-frontend-ba3951debbfd.herokuapp.com/login
+
+_Test Account Credentials_
+
+username: alpinista24
+
+password: alpinista24
 
 ## Project Description 🚀
 
