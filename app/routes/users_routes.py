@@ -24,7 +24,7 @@ def create_user():
     for req in attribute_requirements:
         if req not in request_body:
             abort(make_response({
-                "message" : f"Failed to create a planet because {req} missing"
+                "message" : f"Failed to create a user because {req} missing"
                 }, 400))
     new_user = User.from_dict(request_body)
     db.session.add(new_user)

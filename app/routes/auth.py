@@ -11,19 +11,24 @@ auth_bp = Blueprint("auth", __name__, url_prefix="/")
 @auth_bp.route("/token", methods=["POST"])
 def login():
     request_body = request.get_json()
+    print(request_body)
     username = request.json.get("username", None)
-    email = request.json.get("email", None)
+    # email = request.json.get("email", None)
     password = request.json.get("password", None)
+    print(username, password)
     # check for username/email with password
-    if not (username and password) and not (email & password):
-        abort(make_response({"message": "username or email required for login"}, 400))
+    if not (username and password):
+        abort(make_response({"message": "username and password required for login"}, 400))
     # fetch user matching username/email and password
     user = User.query.filter_by(**request_body).first()
+    print(user)
+    print(user.id)
     # handle incorrect credentials
     if not user:
         abort(make_response({"message": "Credentials are incorrect"}, 401))
     # create access token for user
     access_token = create_access_token(identity=user.id)
+    print(access_token)
     return jsonify(access_token=access_token)
 
 # route to register new account
